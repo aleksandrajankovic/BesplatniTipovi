@@ -40,6 +40,7 @@ const AddEditTip = () => {
       const singleTip = userTips.find((tip) => tip._id === id);
       console.log(singleTip);
       setTipData({ ...singleTip });
+      console.log("tipDate in tipData:", tipData.tipDate);
     }
   }, [id]);
 
@@ -57,7 +58,7 @@ const AddEditTip = () => {
       sport &&
       rivales &&
       tipsAndQuotes &&
-      tipData
+      tipDate
     ) {
       const updatedTipData = { ...tipData, name: user?.result?.name };
 

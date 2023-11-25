@@ -9,7 +9,8 @@ import AddEditTip from "./pages/AddEditTip";
 import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Error from "./components/Error";
+import Error from "./pages/Error";
+import Home from "./pages/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function App() {
           <ToastContainer />
         </Header>
         <Routes>
-          {/* <Route path="/" element={<Home></Home>}></Route> */}
+          <Route path="/" element={<Home></Home>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
           <Route path="/addTips" element={<AddEditTip></AddEditTip>}></Route>
