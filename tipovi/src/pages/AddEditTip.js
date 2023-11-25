@@ -171,7 +171,7 @@ const AddEditTip = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
-                placeholder="Enter Descriptions of tip"
+                placeholder="Enter Description of tip"
                 type="text"
                 value={description}
                 name="description"
@@ -181,7 +181,7 @@ const AddEditTip = () => {
                 invalid
                 textarea
                 rows={4}
-                validation="Please provide descriptions"
+                validation="Please provide description"
               />
             </div>
             <div className="col-md-12">
