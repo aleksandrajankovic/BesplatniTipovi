@@ -163,7 +163,7 @@ const AddEditTip = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
-                placeholder="Enter Description"
+                placeholder="Enter Descriptions of tip"
                 type="text"
                 value={description}
                 name="description"
