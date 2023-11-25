@@ -9,6 +9,7 @@ import AddEditTip from "./pages/AddEditTip";
 import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Error from "./components/Error";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function App() {
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
           <Route path="/addTips" element={<AddEditTip></AddEditTip>}></Route>
-          {/* <Route path="*" element={<Error></Error>}></Route> */}
+          <Route path="*" element={<Error></Error>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

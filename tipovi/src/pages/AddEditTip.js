@@ -50,7 +50,15 @@ const AddEditTip = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (title && description) {
+    if (
+      title &&
+      description &&
+      league &&
+      sport &&
+      rivales &&
+      tipsAndQuotes &&
+      tipData
+    ) {
       const updatedTipData = { ...tipData, name: user?.result?.name };
 
       if (!id) {
@@ -173,7 +181,7 @@ const AddEditTip = () => {
                 invalid
                 textarea
                 rows={4}
-                validation="Please provide description"
+                validation="Please provide descriptions"
               />
             </div>
             <div className="col-md-12">
