@@ -19,4 +19,5 @@ export const getTip = (id) => API.get(`/tip/${id}`);
 export const deleteTip = (id) => API.delete(`/tip/${id}`);
 export const updateTip = (updatedTipData, id) =>
   API.patch(`/tip/${id}`, updatedTipData);
+export const likeTip = (id) => API.post(`/tip/${id}/like`);
 export const getTipsByUser = (userId) => API.get(`/tour/userTips/${userId}`);

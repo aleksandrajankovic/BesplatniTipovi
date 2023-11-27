@@ -92,3 +92,25 @@ export const updateTip = async (req, res) => {
     res.status(404).json({ message: "Something went wrong" });
   }
 };
+
+export const likeTip = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ message: `No tip exists with id: ${id}` });
+    }
+
+    const tip = await TipsModal.findById(id);
+    const updatedTip = await TipsModal.findByIdAndUpdate(
+      id,
+      { likeCount: tip.likeCount + 1 },
+      { new: true }
+    );
+
+    console.log("Updated tip:", updatedTip);
+    res.status(200).json(updatedTip);
+  } catch (error) {
+    res.status(404).json({ message: "Something went wrong" });
+  }
+};

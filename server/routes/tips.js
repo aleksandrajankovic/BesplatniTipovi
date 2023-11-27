@@ -9,6 +9,7 @@ import {
   getTips,
   getTipsByUser,
   updateTip,
+  likeTip,
 } from "../controllers/tips.js";
 
 router.post("/", createTip);
@@ -17,5 +18,6 @@ router.get("/:id", getTip);
 router.delete("/:id", auth, deleteTip);
 router.patch("/:id", auth, updateTip);
 router.get("/userTips/:id", auth, getTipsByUser);
+router.post("/:id/like", likeTip);
 
 export default router;

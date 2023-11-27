@@ -8,7 +8,7 @@ import Spinner from "../components/Spinner";
 const Home = () => {
   const { tips, loading } = useSelector((state) => ({ ...state.tip }));
   const dispatch = useDispatch();
-  const [filter, setFilter] = useState("Svi"); // Početna vrednost - prikazi sve tipove
+  const [filter, setFilter] = useState("Svi");
 
   useEffect(() => {
     dispatch(getTips());

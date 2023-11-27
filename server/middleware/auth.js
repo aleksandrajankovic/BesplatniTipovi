@@ -1,15 +1,16 @@
 import jwt from "jsonwebtoken";
 import UserModel from "../models/user.js";
 
-const secret = "test";
+const secret = "sasndladhflflgbmsbdkdsjfkjjdbkfjbs";
 
 const auth = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     const isCustomAuth = token.length < 500;
     let decodedData;
+
     if (token && isCustomAuth) {
-      decodedData = jwt.verify(token, secret);
+      decodedData = jwt.verify(token, secret, { ignoreExpiration: false });
       req.userId = decodedData?.id;
     } else {
       decodedData = jwt.decode(token);
@@ -20,6 +21,7 @@ const auth = async (req, res, next) => {
     next();
   } catch (error) {
     console.log(error);
+    return res.status(401).json({ message: "Unauthorized: Session expired" });
   }
 };
 

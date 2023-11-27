@@ -77,7 +77,17 @@ export const updateTip = createAsyncThunk(
     }
   }
 );
-
+export const likeTip = createAsyncThunk(
+  "tip/likeTip",
+  async ({ id }, { rejectWithValue }) => {
+    try {
+      const response = await api.likeTip(id);
+      return response.data;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  }
+);
 const tipSlice = createSlice({
   name: "tip",
   initialState: {
@@ -171,6 +181,38 @@ const tipSlice = createSlice({
     [updateTip.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload.message;
+    },
+    [likeTip.pending]: (state, action) => {
+      state.loading = true;
+    },
+    [likeTip.fulfilled]: (state, action) => {
+      const likedTip = action.payload; // Prilagodite ovu liniju prema stvarnom formatu odgovora
+
+      if (likedTip) {
+        const existingTipIndex = state.tips.findIndex(
+          (tip) => tip._id === likedTip._id
+        );
+
+        if (existingTipIndex !== -1) {
+          state.tips[existingTipIndex] = likedTip;
+        } else {
+          state.tips.push(likedTip);
+        }
+      } else {
+        console.error(
+          "Like tip error: Unexpected payload format",
+          action.payload
+        );
+      }
+
+      state.loading = false;
+      state.error = undefined;
+    },
+    [likeTip.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload
+        ? action.payload.message
+        : "Nepoznata greška";
     },
   },
 });
