@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { register, setUser } from "./redux/features/authSlice";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Register from "./pages/Register";
 import AddEditTip from "./pages/AddEditTip";
 import Login from "./pages/Login";
@@ -35,8 +36,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
           <Route path="*" element={<Error></Error>}></Route>
         </Routes>
+        <Footer></Footer>
       </div>
     </BrowserRouter>
+  
   );
 }
 export default App;
