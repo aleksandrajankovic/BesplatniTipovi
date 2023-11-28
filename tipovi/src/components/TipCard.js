@@ -26,6 +26,7 @@ const TipCard = ({
   sport,
   rivales,
   tipsAndQuotes,
+  tipsAndQuotesLink,
   tipDate,
   _id,
   likeCount,
@@ -78,7 +79,22 @@ const TipCard = ({
                 <MDBCardFooter>{sport}</MDBCardFooter>
                 <MDBCardFooter>{league}</MDBCardFooter>
                 <p>{description}</p>
-                <p>{tipsAndQuotes}</p>
+                <div className="col-md-12">
+                  <p>
+                    {" "}
+                    {tipsAndQuotesLink ? (
+                      <a
+                        href={tipsAndQuotesLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {tipsAndQuotes}
+                      </a>
+                    ) : (
+                      tipsAndQuotes
+                    )}
+                  </p>
+                </div>
               </MDBModalBody>
               <MDBModalFooter>
                 <MDBBtn color="secondary" onClick={closeModal}>

@@ -31,8 +31,16 @@ const AddEditTip = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { title, description, league, sport, rivales, tipsAndQuotes, tipDate } =
-    tipData;
+  const {
+    title,
+    description,
+    league,
+    sport,
+    rivales,
+    tipsAndQuotes,
+    tipDate,
+    tipsAndQuotesLink,
+  } = tipData;
   const { id } = useParams();
 
   useEffect(() => {
@@ -47,6 +55,7 @@ const AddEditTip = () => {
           sport: singleTip.sport || "",
           rivales: singleTip.rivales || "",
           tipsAndQuotes: singleTip.tipsAndQuotes || "",
+          tipsAndQuotesLink: singleTip.tipDate || "",
           tipDate: singleTip.tipDate || "",
         });
       }
@@ -67,6 +76,7 @@ const AddEditTip = () => {
       sport &&
       rivales &&
       tipsAndQuotes &&
+      tipsAndQuotesLink &&
       tipDate
     ) {
       const updatedTipData = { ...tipData, name: user?.result?.name };
@@ -92,6 +102,7 @@ const AddEditTip = () => {
       sport: "",
       rivales: "",
       tipsAndQuotes: "",
+      tipsAndQuotesLink: "",
       tipDate: "",
     });
   };
@@ -178,6 +189,18 @@ const AddEditTip = () => {
                 rows={4}
                 validation="Please provide tips and quotes"
               />
+             
+            </div>
+            <div className="col-md-12">
+              <MDBInput
+                placeholder="Unesite Tips and Quotes Link"
+                type="text"
+                value={tipsAndQuotesLink}
+                name="tipsAndQuotesLink"
+                onChange={onInputChange}
+                className="form-control"
+                rows={4}
+              />
             </div>
             <div className="col-md-12">
               <MDBInput
@@ -204,6 +227,7 @@ const AddEditTip = () => {
                 required
               />
             </div>
+
             <div className="col-12">
               <MDBBtn style={{ width: "100%" }}>
                 {id ? "Update" : "Submit"}

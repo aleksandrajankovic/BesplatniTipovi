@@ -68,6 +68,7 @@ export const updateTip = async (req, res) => {
     league,
     sport,
     tipsAndQuotes,
+    tipsAndQuotesLink,
     tipDate,
   } = req.body;
   try {
@@ -83,6 +84,7 @@ export const updateTip = async (req, res) => {
       league,
       sport,
       tipsAndQuotes,
+      tipsAndQuotesLink,
       tipDate,
       _id: id,
     };

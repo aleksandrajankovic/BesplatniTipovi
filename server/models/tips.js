@@ -6,6 +6,7 @@ const tipsSchema = mongoose.Schema({
   league: String,
   sport: String,
   tipsAndQuotes: String,
+  tipsAndQuotesLink: String,
   description: String,
   creator: String,
   tipDate: Date,
