@@ -17,6 +17,7 @@ import { getTips, deleteTip } from "../redux/features/tipSlice";
 import TipCard from "../components/TipCard";
 import { toast } from "react-toastify";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const { tips } = useSelector((state) => ({ ...state.tip }));
@@ -59,30 +60,30 @@ const Dashboard = () => {
                 <div key={index}>
                   <MDBCard alignment="center">
                     <MDBCardHeader>
+                      <MDBBtn
+                        className="mt-1"
+                        tag="a"
+                        color="none"
+                        onClick={() => handleDelete(item._id)}
+                      >
+                        <MDBCardTitle>
+                          <p className="text-right">Delete tip</p>
+                        </MDBCardTitle>
+                      </MDBBtn>
+                      <Link to={`/editTip/${item._id}`}>
+                        <MDBCardTitle>
+                          <p className="text-right">Edit tip</p>
+                        </MDBCardTitle>
+                      </Link>
                       <h3>{item.title}</h3>
                       <span>
-                        <p className="text-start tourName">
-                          Created By: {item.sport}
-                        </p>
+                        <p className="text-center tipName">{item.sport}</p>
                       </span>
 
                       <br />
                     </MDBCardHeader>
-                    <MDBBtn
-                      className="mt-1"
-                      tag="a"
-                      color="none"
-                      onClick={() => handleDelete(item._id)}
-                      style={{ width: "30px", height: "30px" }}
-                    >
-                      <MDBIcon
-                        fas
-                        icon="trash"
-                        style={{ color: "#dd4b39", fontSize: "24px" }}
-                      />
-                    </MDBBtn>
+
                     <MDBCardBody>
-                      <MDBCardTitle>{item.rivales}</MDBCardTitle>
                       <MDBCardText>{item.description}</MDBCardText>
                     </MDBCardBody>
                     <MDBCardFooter className="text-muted">{`Tip date: ${moment(

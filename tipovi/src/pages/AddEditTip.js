@@ -24,7 +24,7 @@ const initialState = {
 
 const AddEditTip = () => {
   const [tipData, setTipData] = useState(initialState);
-  const { error, loading, userTips } = useSelector((state) => ({
+  const { error, userTips, tips } = useSelector((state) => ({
     ...state.tip,
   }));
   const { user } = useSelector((state) => ({ ...state.auth }));
@@ -36,13 +36,22 @@ const AddEditTip = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    if (id) {
-      const singleTip = userTips.find((tip) => tip._id === id);
-      console.log(singleTip);
-      setTipData({ ...singleTip });
-      console.log("tipDate in tipData:", tipData.tipDate);
+    if (id && tips.length > 0) {
+      const singleTip = tips.find((tip) => tip._id === id);
+      console.log("Podaci sa servera:", singleTip);
+      if (singleTip) {
+        setTipData({
+          title: singleTip.title || "",
+          description: singleTip.description || "",
+          league: singleTip.league || "",
+          sport: singleTip.sport || "",
+          rivales: singleTip.rivales || "",
+          tipsAndQuotes: singleTip.tipsAndQuotes || "",
+          tipDate: singleTip.tipDate || "",
+        });
+      }
     }
-  }, [id]);
+  }, [id, userTips]);
 
   useEffect(() => {
     error && toast.error(error);
@@ -180,7 +189,7 @@ const AddEditTip = () => {
                 className="form-control"
                 required
                 invalid
-                textarea
+                textarea={true}
                 rows={4}
                 validation="Please provide description"
               />

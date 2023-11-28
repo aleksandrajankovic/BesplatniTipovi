@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,8 @@ function App() {
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
           <Route path="/addTips" element={<AddEditTip></AddEditTip>}></Route>
+          <Route path="/editTip/:id" element={<AddEditTip></AddEditTip>} />
+          <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
           <Route path="*" element={<Error></Error>}></Route>
         </Routes>
       </div>

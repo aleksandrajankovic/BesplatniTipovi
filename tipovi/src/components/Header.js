@@ -47,6 +47,11 @@ export default function Header() {
                     <p className="header-text">Add Tip</p>
                   </MDBNavbarLink>
                 </MDBNavbarItem>
+                <MDBNavbarItem>
+                  <MDBNavbarLink active aria-current="page" href="/dashboard">
+                    <p className="header-text">Dashboard</p>
+                  </MDBNavbarLink>
+                </MDBNavbarItem>
               </>
             )}
             {user?.result?._id ? (

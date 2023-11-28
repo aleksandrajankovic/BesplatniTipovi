@@ -15,8 +15,8 @@ import {
 router.post("/", createTip);
 router.get("/", getTips);
 router.get("/:id", getTip);
-router.delete("/:id", auth, deleteTip);
-router.patch("/:id", auth, updateTip);
+router.delete("/:id", deleteTip);
+router.patch("/:id", updateTip);
 router.get("/userTips/:id", auth, getTipsByUser);
 router.post("/:id/like", likeTip);
 

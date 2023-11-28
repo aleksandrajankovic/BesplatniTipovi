@@ -53,12 +53,14 @@ const TipCard = ({
         <MDBCardTitle>{title}</MDBCardTitle>
         <MDBCardText>{rivales}</MDBCardText>
         <MDBBtn onClick={openModal}>Read more</MDBBtn>
-        {user?.result?.role === "user" && (
-          <div>
-            <p>Likes: {likeCount}</p>
+
+        <div>
+          <p>Likes: {likeCount}</p>
+          {user?.result?.role === "user" && (
             <MDBBtn onClick={handleLike}>Like</MDBBtn>
-          </div>
-        )}
+          )}
+        </div>
+
         <MDBModal tabIndex="-1" show={centredModal} onHide={closeModal}>
           <MDBModalDialog centered>
             <MDBModalContent>
