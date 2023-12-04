@@ -5,7 +5,6 @@ export const createTip = async (req, res) => {
   const tip = req.body;
   const newTip = new TipsModal({
     ...tip,
-    creator: req.userId,
     createdAt: new Date().toISOString(),
   });
 
@@ -34,15 +33,6 @@ export const getTip = async (req, res) => {
   } catch (error) {
     res.status(404).json({ message: "Something went wrong" });
   }
-};
-
-export const getTipsByUser = async (req, res) => {
-  const { id } = req.params;
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ message: "User doesn't exist" });
-  }
-  const userTips = await TipsModal.find({ creator: id });
-  res.status(200).json(userTips);
 };
 
 export const deleteTip = async (req, res) => {
@@ -107,7 +97,7 @@ export const likeTip = async (req, res) => {
     const updatedTip = await TipsModal.findByIdAndUpdate(
       id,
       { likeCount: tip.likeCount + 1 },
-      { new: true }
+      { new: true } //vraca azurirane podatke, u slucaju false vraca se originalni podaci pre azuriranja
     );
 
     console.log("Updated tip:", updatedTip);

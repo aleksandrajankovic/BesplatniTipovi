@@ -41,10 +41,15 @@ const Home = () => {
           Filter tipova:
         </label>
         <select
-          className="form-select"
+          className="form-select custom-dropdown"
           id="filterDropdown"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
+          style={{
+            backgroundColor: "rgb(28, 47, 56)",
+            border: "1px solid #2e5465",
+            color: "#fff",
+          }}
         >
           <option value="Svi">All</option>
           <option value="Aktivni">Active</option>

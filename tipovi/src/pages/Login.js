@@ -51,13 +51,18 @@ const Login = () => {
         marginTop: "120px",
       }}
     >
-      <MDBCard alignment="center">
-        <MDBIcon fas icon="user-circle" className="fa-2x" />
-        <h5>Sign In</h5>
+      <MDBCard
+        alignment="center"
+        style={{ background: "#1c2f38", padding: "20px" }}
+      >
+        <MDBIcon fas icon="sign-in-alt" style={{ color: "#fff" }} />
+        <h5 style={{ color: "#fff" }}>Sign In</h5>
         <MDBCardBody>
           <MDBValidation onSubmit={handleSubmit} noValidate className="row g-3">
             <div className="col-md-12">
               <MDBInput
+                id="formWhite"
+                contrast
                 label="Email"
                 type="email"
                 value={email}
@@ -66,10 +71,15 @@ const Login = () => {
                 required
                 invalid
                 validation="Please provide your email"
+                className="text-white"
+                style={{ backgroundColor: "#344955 !important" }}
+                labelClass="text-white"
               />
             </div>
             <div className="col-md-12">
               <MDBInput
+                id="formWhite"
+                contrast
                 label="Password"
                 type="password"
                 value={password}
@@ -78,6 +88,9 @@ const Login = () => {
                 required
                 invalid
                 validation="Please provide your password"
+                className="text-white"
+                style={{ backgroundColor: "#344955 !important" }}
+                labelClass="text-white"
               />
             </div>
             <div className="col-12">

@@ -56,13 +56,23 @@ const Register = () => {
         marginTop: "120px",
       }}
     >
-      <MDBCard alignment="center">
-        <MDBIcon fas icon="user-circle" className="fa-2x" />
-        <h5>Sign Up</h5>
+      <MDBCard
+        alignment="center"
+        style={{ background: "#1c2f38", padding: "20px" }}
+      >
+        <MDBIcon
+          fas
+          icon="user-circle"
+          className="fa-2x"
+          style={{ color: "#fff" }}
+        />
+        <h5 style={{ color: "#fff" }}>Sign Up</h5>
         <MDBCardBody>
           <MDBValidation onSubmit={handleSubmit} noValidate className="row g-3">
             <div className="col-md-6">
               <MDBInput
+                id="formWhite"
+                contrast
                 label="First Name"
                 type="text"
                 value={firstName}
@@ -75,6 +85,8 @@ const Register = () => {
             </div>
             <div className="col-md-6">
               <MDBInput
+                id="formWhite"
+                contrast
                 label="Last Name"
                 type="text"
                 value={lastName}
@@ -87,6 +99,8 @@ const Register = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
+                id="formWhite"
+                contrast
                 label="Email"
                 type="email"
                 value={email}
@@ -99,6 +113,8 @@ const Register = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
+                id="formWhite"
+                contrast
                 label="Password"
                 type="password"
                 value={password}
@@ -111,6 +127,8 @@ const Register = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
+                id="formWhite"
+                contrast
                 label="Password Confirm"
                 type="password"
                 value={confirmPassword}

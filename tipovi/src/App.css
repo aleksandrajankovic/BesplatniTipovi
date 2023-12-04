@@ -1,12 +1,95 @@
+.center {
+  text-align: center;
+}
 .App {
   text-align: center;
 }
-
+.AppWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.AppContent {
+  flex: 1;
+  background: #10181c;
+  padding-bottom: 50px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+.header-wrapper {
+  width: 90% !important;
+  margin: 0 auto;
+}
+.navbar-nav {
+  justify-content: end;
+}
+#header {
+  background-color: #2e5465 !important;
+}
+#header p {
+  margin-bottom: 0rem;
+  color: #fff;
+}
+.nav-item a {
+  color: #fff !important;
+}
+.navbar-brand {
+  color: #fff !important;
+}
 
+.active {
+  color: #17bb00;
+}
+.greenLabel {
+  color: #17bb00;
+}
+.redLabel {
+  color: #d11101;
+}
+.blueLabel {
+  color: #08a0ff;
+}
+.form-label {
+  color: #fff !important;
+}
+.form-outline {
+  border: 1px solid #2e5465 !important;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.custom-dropdown option {
+  background-color: #1c2f38 !important;
+  color: #fff;
+}
+
+.custom-dropdown option:hover {
+  background-color: #2e5465 !important;
+}
+.flex p {
+  margin-bottom: 0rem;
+  font-size: 18px;
+  color: #bdbdbb;
+}
+.modal-header {
+  justify-content: center !important;
+}
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.buttonWrapper i {
+  font-size: 22px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -34,5 +117,11 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .homeCard {
+    max-width: 100% !important;
+    margin-right: 0px;
   }
 }

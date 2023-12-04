@@ -22,8 +22,14 @@ export default function Header() {
     dispatch(setLogout());
   };
   return (
-    <MDBNavbar expand="lg" light bgColor="light">
-      <MDBContainer fluid>
+    <MDBNavbar
+      className="sticky-top"
+      id="header"
+      expand="lg"
+      light
+      bgColor="light"
+    >
+      <MDBContainer className="header-wrapper" fluid>
         <MDBNavbarBrand href="#">Sportski Tipovi</MDBNavbarBrand>
         <MDBNavbarToggler
           type="button"
@@ -61,7 +67,6 @@ export default function Header() {
                     <p className="header-text">Hello, {user?.result?.name}</p>
                   </MDBNavbarLink>
                 </MDBNavbarItem>
-
                 <MDBNavbarItem>
                   <MDBNavbarLink href="/login" className="header-text">
                     <p className="header-text" onClick={() => handleLogout()}>

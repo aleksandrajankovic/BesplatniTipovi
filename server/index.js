@@ -8,10 +8,11 @@ import tipsRouter from "./routes/tips.js";
 const app = express();
 
 app.use(morgan("dev"));
-app.use(express.json({ limit: "30mb", extended: true }));
+app.use(express.json({ limit: "30mb", extended: true })); //parsiranje dolazecih json podataka
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
+//setup ruta
 app.use("/users", userRouter); // http://localhost:5000/users/signup
 app.use("/tip", tipsRouter);
 

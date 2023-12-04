@@ -1,9 +1,9 @@
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs"; //biblioteka za heshiranje lozinke
+import jwt from "jsonwebtoken"; //biblioteka za generisanje tokena
 
-import UserModal from "../models/user.js";
+import UserModal from "../models/user.js"; //sema baze
 
-const secret = "test";
+const secret = "sasndladhflflgbmsbdkdsjfkjjdbkfjbs"; //token
 
 export const signin = async (req, res) => {
   const { email, password } = req.body;
@@ -32,19 +32,18 @@ export const signin = async (req, res) => {
 export const signup = async (req, res) => {
   console.log("Request body:", req.body);
   const { email, password, firstName, lastName } = req.body;
-  console.log("test1");
+
   console.log(req.body);
   console.log(email, password, firstName, lastName);
 
   try {
     const oldUser = await UserModal.findOne({ email });
-    console.log("test2");
+
     if (oldUser) {
       return res.status(400).json({ message: "User already exists" });
     }
-    console.log("test3");
+
     const hashedPassword = await bcrypt.hash(password, 12);
-    console.log("test4");
 
     const role = "user";
 
@@ -62,28 +61,5 @@ export const signup = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Something went wrong" });
-  }
-};
-
-export const googleSignIn = async (req, res) => {
-  const { email, name, token, googleId } = req.body;
-
-  try {
-    const oldUser = await UserModal.findOne({ email });
-    if (oldUser) {
-      const result = { _id: oldUser._id.toString(), email, name };
-      return res.status(200).json({ result, token });
-    }
-
-    const result = await UserModal.create({
-      email,
-      name,
-      googleId,
-    });
-
-    res.status(200).json({ result, token });
-  } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
-    console.log(error);
   }
 };

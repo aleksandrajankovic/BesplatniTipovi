@@ -39,18 +39,6 @@ export const getTip = createAsyncThunk(
   }
 );
 
-export const getTipsByUser = createAsyncThunk(
-  "tip/getTipsByUser",
-  async (userId, { rejectWithValue }) => {
-    try {
-      const response = await api.getTipsByUser(userId);
-      return response.data;
-    } catch (err) {
-      return rejectWithValue(err.response.data);
-    }
-  }
-);
-
 export const deleteTip = createAsyncThunk(
   "tip/deleteTip",
   async ({ id, toast }, { rejectWithValue }) => {
@@ -131,17 +119,7 @@ const tipSlice = createSlice({
       state.loading = false;
       state.error = action.payload.message;
     },
-    [getTipsByUser.pending]: (state, action) => {
-      state.loading = true;
-    },
-    [getTipsByUser.fulfilled]: (state, action) => {
-      state.loading = false;
-      state.userTips = action.payload;
-    },
-    [getTipsByUser.rejected]: (state, action) => {
-      state.loading = false;
-      state.error = action.payload.message;
-    },
+
     [deleteTip.pending]: (state, action) => {
       state.loading = true;
     },
@@ -186,7 +164,7 @@ const tipSlice = createSlice({
       state.loading = true;
     },
     [likeTip.fulfilled]: (state, action) => {
-      const likedTip = action.payload; // Prilagodite ovu liniju prema stvarnom formatu odgovora
+      const likedTip = action.payload;
 
       if (likedTip) {
         const existingTipIndex = state.tips.findIndex(

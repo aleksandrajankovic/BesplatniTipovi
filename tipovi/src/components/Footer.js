@@ -17,13 +17,13 @@ export default function Footer() {
   return (
     <MDBFooter
       className="text-center text-white"
-      style={{ backgroundColor: "#f1f1f1" }}
+      style={{ backgroundColor: "#1c2f38" }}
     >
       <MDBContainer className="pt-4">
         <section className="mb-4">
           <MDBBtn
             rippleColor="dark"
-            color="link"
+            color="white"
             floating
             size="lg"
             className="text-dark m-1"
@@ -35,7 +35,7 @@ export default function Footer() {
 
           <MDBBtn
             rippleColor="dark"
-            color="link"
+            color="white"
             floating
             size="lg"
             className="text-dark m-1"
@@ -47,7 +47,7 @@ export default function Footer() {
 
           <MDBBtn
             rippleColor="dark"
-            color="link"
+            color="white"
             floating
             size="lg"
             className="text-dark m-1"
@@ -59,7 +59,7 @@ export default function Footer() {
 
           <MDBBtn
             rippleColor="dark"
-            color="link"
+            color="white"
             floating
             size="lg"
             className="text-dark m-1"
@@ -71,7 +71,7 @@ export default function Footer() {
 
           <MDBBtn
             rippleColor="dark"
-            color="link"
+            color="white"
             floating
             size="lg"
             className="text-dark m-1"
@@ -83,7 +83,7 @@ export default function Footer() {
 
           <MDBBtn
             rippleColor="dark"
-            color="link"
+            color="white"
             floating
             size="lg"
             className="text-dark m-1"
@@ -96,11 +96,11 @@ export default function Footer() {
       </MDBContainer>
 
       <div
-        className="text-center text-dark p-3"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        className="text-center text-white p-3"
+        style={{ backgroundColor: "#10181c" }}
       >
         © {currentYear} Copyright
-        <a className="text-dark" href="https://mdbootstrap.com/">
+        <a className="text-white" href="https://mdbootstrap.com/">
           | Besplatni tipovi
         </a>
       </div>

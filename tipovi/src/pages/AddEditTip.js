@@ -5,6 +5,7 @@ import {
   MDBValidation,
   MDBBtn,
   MDBInput,
+  MDBIcon,
 } from "mdb-react-ui-kit";
 
 import { toast } from "react-toastify";
@@ -117,13 +118,29 @@ const AddEditTip = () => {
       }}
       className="container"
     >
-      <MDBCard alignment="center">
-        <h5>{id ? "Update Tip" : "Add Tip"}</h5>
-        <MDBCardBody>
+      <MDBCard
+        alignment="center"
+        style={{ background: "#1c2f38", padding: "20px" }}
+      >
+        <MDBIcon
+          fas
+          icon="chalkboard"
+          style={{ color: "#fff", fontSize: "24px", marginBottom: "10px" }}
+        />
+        <h5
+          className="blueLabel"
+          style={{ fontSize: "24px", marginBottom: "10px" }}
+        >
+          {id ? "Update Tip" : "Add Tip"}
+        </h5>
+
+        <MDBCardBody style={{ color: "#fff" }}>
           <MDBValidation onSubmit={handleSubmit} className="row g-3" noValidate>
             <div className="col-md-12">
               <MDBInput
-                placeholder="Enter Title"
+                id="formWhite"
+                contrast
+                label="Enter Title"
                 type="text"
                 value={title || ""}
                 name="title"
@@ -136,7 +153,9 @@ const AddEditTip = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
-                placeholder="Enter League"
+                id="formWhite"
+                contrast
+                label="Enter League"
                 type="text"
                 value={league}
                 name="league"
@@ -150,7 +169,9 @@ const AddEditTip = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
-                placeholder="Enter Sport"
+                id="formWhite"
+                contrast
+                label="Enter Sport"
                 type="text"
                 value={sport}
                 name="sport"
@@ -164,7 +185,9 @@ const AddEditTip = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
-                placeholder="Enter Rivales"
+                id="formWhite"
+                contrast
+                label="Enter Rivales"
                 type="text"
                 value={rivales}
                 name="rivales"
@@ -178,7 +201,9 @@ const AddEditTip = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
-                placeholder="Enter Tips and Quotes"
+                id="formWhite"
+                contrast
+                label="Enter Tips and Quotes"
                 type="text"
                 value={tipsAndQuotes}
                 name="tipsAndQuotes"
@@ -189,11 +214,12 @@ const AddEditTip = () => {
                 rows={4}
                 validation="Please provide tips and quotes"
               />
-             
             </div>
             <div className="col-md-12">
               <MDBInput
-                placeholder="Unesite Tips and Quotes Link"
+                id="formWhite"
+                contrast
+                label="Enter Tips and Quotes Link"
                 type="text"
                 value={tipsAndQuotesLink}
                 name="tipsAndQuotesLink"
@@ -204,7 +230,9 @@ const AddEditTip = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
-                placeholder="Enter Description of tip"
+                id="formWhite"
+                contrast
+                label="Enter Description of tip"
                 type="text"
                 value={description}
                 name="description"
@@ -219,6 +247,8 @@ const AddEditTip = () => {
             </div>
             <div className="col-md-12">
               <MDBInput
+                id="formWhite"
+                contrast
                 type="date"
                 value={tipDate}
                 name="tipDate"
